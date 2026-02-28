@@ -5,8 +5,12 @@ import {
   stockIn,
   stockOut
 } from '../controllers/stockController.js';
+import { protect } from '../middleware/auth.js';
 
 const router = express.Router();
+
+// All routes require authentication - all authenticated users can manage stock
+router.use(protect);
 
 router.get('/', getStockTransactions);
 router.get('/product/:productId', getProductTransactions);

@@ -36,4 +36,9 @@ const stockTransactionSchema = new mongoose.Schema({
   timestamps: true
 });
 
+// Indexes for query performance
+stockTransactionSchema.index({ product: 1 });
+stockTransactionSchema.index({ createdAt: -1 });
+stockTransactionSchema.index({ type: 1, createdAt: -1 });
+
 export default mongoose.model('StockTransaction', stockTransactionSchema);

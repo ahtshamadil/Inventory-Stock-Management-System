@@ -1,20 +1,107 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply m-0 p-0 box-border;
+  }
+
+  body {
+    @apply font-sans text-base bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white w-full min-h-screen;
+  }
+
+  #root {
+    @apply w-full min-h-screen;
+  }
 }
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  background: white;
-  width: 100%;
-  min-height: 100vh;
+@layer utilities {
+  .glass-effect {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  }
+  
+  .glass-hover {
+    @apply transition-all duration-300 hover:bg-white/10 hover:border-white/20;
+  }
+  
+  .btn-gradient {
+    @apply bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 transition-all duration-300 transform hover:scale-105;
+  }
+  
+  .btn-danger {
+    @apply bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 transition-all duration-300 transform hover:scale-105;
+  }
+  
+  .input-glass {
+    @apply bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder-slate-400 focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-500/20 transition-all duration-300;
+  }
+  
+  /* Fix autofill white text issue */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-text-fill-color: white !important;
+    -webkit-box-shadow: 0 0 0 30px rgb(30 41 59 / 0.3) inset !important;
+    box-shadow: 0 0 0 30px rgb(30 41 59 / 0.3) inset !important;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  /* Fix select dropdown options styling */
+  select option {
+    background-color: #1e293b;
+    color: white;
+    padding: 8px;
+  }
 }
 
-#root {
-  width: 100%;
-  min-height: 100vh;
+/* Toast Animation */
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out forwards;
+}
+
+/* Fade In Animation */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.2s ease-out forwards;
+}
+
+/* Animated Background Orbs (CSS-only, GPU-composited) */
+@keyframes orb-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(100px, 50px) scale(1.2); }
+}
+@keyframes orb-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-80px, 100px) scale(1.3); }
+}
+@keyframes orb-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(60px, -40px) scale(1.1); }
+}
+
+.animate-orb-1 { animation: orb-1 20s ease-in-out infinite; }
+.animate-orb-2 { animation: orb-2 25s ease-in-out infinite; }
+.animate-orb-3 { animation: orb-3 18s ease-in-out infinite; }

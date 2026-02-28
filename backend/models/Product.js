@@ -72,4 +72,11 @@ productSchema.virtual('isLowStock').get(function() {
 productSchema.set('toJSON', { virtuals: true });
 productSchema.set('toObject', { virtuals: true });
 
+// Indexes for query performance
+productSchema.index({ name: 'text' });
+productSchema.index({ category: 1 });
+productSchema.index({ supplier: 1 });
+productSchema.index({ createdAt: -1 });
+productSchema.index({ quantity: 1, minStockLevel: 1 });
+
 export default mongoose.model('Product', productSchema);

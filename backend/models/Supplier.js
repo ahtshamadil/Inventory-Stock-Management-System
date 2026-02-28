@@ -24,6 +24,14 @@ const supplierSchema = new mongoose.Schema({
     zipCode: String,
     country: String
   },
+  image: {
+    type: String,
+    default: null
+  },
+  imagePublicId: {
+    type: String,
+    default: null
+  },
   isActive: {
     type: Boolean,
     default: true

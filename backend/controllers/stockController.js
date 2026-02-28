@@ -6,14 +6,34 @@ import Product from '../models/Product.js';
 // @access  Public
 const getStockTransactions = async (req, res) => {
   try {
-    const transactions = await StockTransaction.find()
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 50;
+    const skip = (page - 1) * limit;
+
+    // Optional date filter for dashboard (last N days)
+    const query = {};
+    if (req.query.days) {
+      const daysAgo = new Date();
+      daysAgo.setDate(daysAgo.getDate() - parseInt(req.query.days));
+      query.createdAt = { $gte: daysAgo };
+    }
+
+    const total = await StockTransaction.countDocuments(query);
+    const totalPages = Math.ceil(total / limit);
+
+    const transactions = await StockTransaction.find(query)
       .populate('product', 'name')
       .populate('performedBy', 'name email')
-      .sort({ createdAt: -1 });
+      .sort({ createdAt: -1 })
+      .skip(skip)
+      .limit(limit);
     
     res.status(200).json({
       success: true,
       count: transactions.length,
+      total,
+      page,
+      totalPages,
       data: transactions
     });
   } catch (error) {
