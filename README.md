@@ -1,5 +1,5 @@
 <p align="center">
-  <h1 align="center">📦 Inventory & Stock Management System</h1>
+  <h1 align="center">📦 NexStock — Inventory & Stock Management</h1>
   <p align="center">
     A production-ready, full-stack inventory management platform built with the MERN stack. Features role-based access control, real-time stock tracking, interactive analytics dashboards, and a modern glassmorphic dark UI.
   </p>
@@ -41,7 +41,7 @@
 
 ## Overview
 
-The **Inventory & Stock Management System** is an enterprise-grade web application designed to help businesses manage their product inventory, track stock movements, monitor low-stock alerts, and generate analytics — all through an intuitive, modern interface.
+**NexStock** is an enterprise-grade web application designed to help businesses manage their product inventory, track stock movements, monitor low-stock alerts, and generate analytics — all through an intuitive, modern interface.
 
 Built with a decoupled architecture (React SPA + Express REST API), the system supports three user roles with granular permission control, ensuring secure access at every level.
 

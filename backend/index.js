@@ -61,9 +61,9 @@ app.use("/api", routes);
 
 app.get("/", (req, res) => {
   res.json({
-    message: "Inventory & Stock Management System API",
+    message: "NexStock API — Inventory & Stock Management",
     version: "1.0.0",
-    description: "Welcome! Here are the available API endpoints:",
+    description: "Welcome to NexStock! Here are the available API endpoints:",
     endpoints: {
       categories: "/api/categories",
       suppliers: "/api/suppliers",

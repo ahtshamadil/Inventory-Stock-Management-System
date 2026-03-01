@@ -90,7 +90,7 @@ const Signup = () => {
             <UserPlus className="w-8 h-8 text-white" />
           </motion.div>
           <h1 className="text-3xl font-bold text-white mb-2">Create Account</h1>
-          <p className="text-slate-400">Join our inventory management system</p>
+          <p className="text-slate-400">Join NexStock — Smart Inventory Management</p>
         </motion.div>
 
         {/* Signup Card */}

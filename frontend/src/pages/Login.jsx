@@ -57,8 +57,8 @@ const Login = () => {
           >
             <LogIn className="w-8 h-8 text-white" />
           </motion.div>
-          <h1 className="text-3xl font-bold text-white mb-2">Welcome Back</h1>
-          <p className="text-slate-400">Sign in to your inventory account</p>
+          <h1 className="text-3xl font-bold text-white mb-2">Welcome to <span className='bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent'>NexStock</span></h1>
+          <p className="text-slate-400">Sign in to your NexStock account</p>
         </motion.div>
 
         {/* Login Card */}

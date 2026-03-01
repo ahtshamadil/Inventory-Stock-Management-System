@@ -56,8 +56,8 @@ const Navbar = () => {
             <div className="w-10 h-10 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-lg flex items-center justify-center shadow-lg shadow-violet-500/30 group-hover:shadow-violet-500/50 transition-all duration-300">
               <Package className="w-6 h-6 text-white" />
             </div>
-            <span className="font-bold text-lg text-white hidden md:block">
-              Inventory System
+            <span className="font-bold text-lg text-white hidden md:block bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent">
+              NexStock
             </span>
           </Link>
 
