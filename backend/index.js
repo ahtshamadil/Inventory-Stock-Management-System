@@ -15,6 +15,9 @@ const PORT = process.env.PORT || 3000;
 
 const app = express();
 
+// Trust proxy (required for Render, Railway, etc. behind reverse proxy)
+app.set('trust proxy', 1);
+
 // CONNECT TO DATABASE
 connectDB();
 
